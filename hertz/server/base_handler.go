@@ -2,6 +2,7 @@ package server
 
 import (
 	"context"
+
 	"github.com/cloudwego/hertz/pkg/app"
 	"github.com/cloudwego/hertz/pkg/common/hlog"
 )
@@ -21,6 +22,7 @@ type BaseHandler struct {
 }
 
 func (h *BaseHandler) ActionMiss(ctx context.Context, c *app.RequestContext) {
+
 }
 
 func (h *BaseHandler) MethodMiss(ctx context.Context, c *app.RequestContext, methodName string) {
