@@ -22,7 +22,7 @@ type BaseHandler struct {
 }
 
 func (h *BaseHandler) ActionMiss(ctx context.Context, c *app.RequestContext) {
-
+	// 返回错误
 }
 
 func (h *BaseHandler) MethodMiss(ctx context.Context, c *app.RequestContext, methodName string) {

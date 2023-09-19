@@ -13,11 +13,11 @@ type ApiError interface {
 }
 
 type HttpError struct {
-	Message  string
+	HttpCode int
 	Code     string
 	CodeInt  int
+	Message  string
 	Args     []interface{}
-	HttpCode int
 }
 
 func (he *HttpError) Error() string {
