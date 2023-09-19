@@ -22,15 +22,15 @@ type BaseHandler struct {
 }
 
 func (h *BaseHandler) ActionMiss(ctx context.Context, c *app.RequestContext) {
-	// 返回错误
+	FailedResponse(ctx, c, ActionMissed)
 }
 
 func (h *BaseHandler) MethodMiss(ctx context.Context, c *app.RequestContext, methodName string) {
+	FailedResponse(ctx, c, MethodMissed)
 }
 
 func (h *BaseHandler) MethodExisted(ctx context.Context, c *app.RequestContext, name string) {
-	c.Set("Method", name)
-	c.Set("K_METHOD", name) //提供ginex框架打印metric
+	c.Set(CtxMethod, name)
 }
 
 func (h *BaseHandler) Failed(ctx context.Context, c *app.RequestContext) {
