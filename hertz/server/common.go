@@ -1,6 +1,16 @@
 package server
 
-import "net/http"
+import (
+	"context"
+	"net/http"
+
+	"github.com/cloudwego/hertz/pkg/app"
+)
+
+type Handler interface {
+	Handle(ctx context.Context, c *app.RequestContext) (interface{}, error)
+	Get(name string) (string, bool)
+}
 
 var (
 	ActionMissed   = NewHttpError("ActionMissed", "Action of the request missed", http.StatusBadRequest)

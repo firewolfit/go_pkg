@@ -52,6 +52,7 @@ require (
 	code.byted.org/service_mesh/shmipc v0.2.8 // indirect
 	github.com/Knetic/govaluate v3.0.0+incompatible // indirect
 	github.com/beorn7/perks v1.0.1 // indirect
+	github.com/bytedance/go-tagexpr v2.7.4+incompatible // indirect
 	github.com/bytedance/go-tagexpr/v2 v2.9.2 // indirect
 	github.com/bytedance/gopkg v0.0.0-20230324090325-a00d8057bef9 // indirect
 	github.com/bytedance/sonic v1.9.2 // indirect

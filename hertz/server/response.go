@@ -7,6 +7,8 @@ import (
 	"github.com/cloudwego/hertz/pkg/app"
 )
 
+var responseHandler *ResponseHandler
+
 const (
 	CtxErrorFlag = "__has_error__"
 )
@@ -27,12 +29,13 @@ type Response struct {
 
 // SuccessResponse 处理成功返回
 func SuccessResponse(ctx context.Context, c *app.RequestContext, result interface{}) {
-	doResponse(ctx, c, http.StatusOK, 0, "", "", result)
+	responseHandler.doResponse(ctx, c, http.StatusOK, 0, "", "", result)
 }
 
+// FailedResponse 错误返回
 func FailedResponse(ctx context.Context, c *app.RequestContext, err ApiError) {
 	if err == nil {
-		err, _ = respHandler.getCodeMessage("")
+		err = responseHandler.defaultError
 	}
-	doResponse(ctx, c, err.HttpStatus(), err.BizErrCodeInt(), err.BizErrCode(), err.GetMessage(), nil)
+	responseHandler.doResponse(ctx, c, err.HttpStatus(), err.BizErrCodeInt(), err.BizErrCode(), err.GetMessage(), nil)
 }
