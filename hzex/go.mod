@@ -1,6 +1,6 @@
 module github.com/firewolfit/go_pkg/hzex
 
-go 1.21.3
+go 1.18
 
 require (
 	github.com/bytedance/go-tagexpr v2.7.4+incompatible
